@@ -1,20 +1,21 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-mensaje-usuario',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './mensaje-usuario.component.html',
-  styleUrls: ['./mensaje-usuario.component.css']
+  styleUrl: './mensaje-usuario.component.css'
 })
 export class MensajeUsuarioComponent {
-  @Input() nombreUsuario: string = '';
+  @Input() nombreUsuario: string | undefined;
   @Output() mensajeEnviado: EventEmitter<string> = new EventEmitter<string>();
 
-  nuevoMensaje: string = '';
+  mensaje: string = '';
 
   enviar(): void {
-    this.mensajeEnviado.emit(this.nuevoMensaje);
-    this.nuevoMensaje = '';
+    this.mensajeEnviado.emit(`${this.nombreUsuario}: ${this.mensaje}`);
+    this.mensaje = '';
   }
 }

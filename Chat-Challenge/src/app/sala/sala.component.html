@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+        <app-mensaje-usuario nombreUsuario="Pepe" (mensajeEnviado)="recibirMensaje($event)"></app-mensaje-usuario>
+        <app-mensaje-usuario nombreUsuario="María" (mensajeEnviado)="recibirMensaje($event)"></app-mensaje-usuario>
+    </div>
+
+    <h1>Conversación</h1>
+    <div class="container">
+        <div *ngIf="mensajes?.length">
+            <h4>Mensajes de Usuarios:</h4>
+            <div *ngFor="let mensaje of mensajes">{{ mensaje }}</div>
+        </div>
+    </div>
+</div>

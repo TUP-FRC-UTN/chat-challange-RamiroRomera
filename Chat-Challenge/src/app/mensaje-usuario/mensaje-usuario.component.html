@@ -1,0 +1,8 @@
+<div class="container">
+    <h3>Usuario: {{nombreUsuario}}</h3>
+    <div>
+        <h4>Mensaje</h4>
+        <textarea [(ngModel)]="mensaje" rows="3"></textarea>
+    </div>
+    <button (click)="enviar()">Guardar</button>
+</div>
